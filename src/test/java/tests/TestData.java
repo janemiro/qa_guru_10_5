@@ -3,15 +3,16 @@ package tests;
 import com.github.javafaker.Faker;
 
 public class TestData {
-
-
-    public static String url = "https://demoqa.com/automation-practice-form";
     Faker faker = new Faker();
 
-    public static String
-    String name = faker.name().firstName(),
-            lastName = "Doe",
-            email = "jee.doe@gmail.com",
+public static String url = "https://demoqa.com/automation-practice-form";
+
+public String
+            name = faker.name().firstName(),
+            lastName = faker.name().lastName(),
+            email = "jee.doe@gmail.com";
+
+/*
             gender = "Other",
             mobile = "1234567890",
             month = "May",
@@ -25,10 +26,10 @@ public class TestData {
             picture = "img/1.jpg",
             address = "Roof, 5",
             state = "Rajasthan",
-            city = "Jaipur";
+            city = "Jaipur"
 
 
-    String fakename = faker.name().name();
-    String fakeLastName = faker.name().lastName();
+            */
+
 
 }
