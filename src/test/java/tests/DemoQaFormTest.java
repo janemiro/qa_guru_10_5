@@ -1,46 +1,35 @@
 package tests;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static tests.TestData.*;
+import tests.Data.TestData;
+import tests.pages.RegistrationPage;
 
 
-public class DemoQaFormTest extends TestBase {
+public class DemoQaFormTest extends TestData {
+    RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
     void fillFormTest() {
 
-        registrationPage.openPage();
-        // Set the contact info and gender
-        registrationPage.fillName(name)
+        registrationPage.openPage()
+                .fillName(name)
                 .fillLastName(lastName)
                 .fillEmail(email)
                 .fillGender(gender)
                 .fillMobileNumber(mobile)
                 .calendar.setDate(day, month, year);
 
-        registrationPage.fillSubject(subject1, subject2)
+        registrationPage.fillSubject(subject1)
                 .fillHobbies(hobby)
-                .uploadPicture();
+                .uploadPicture()
+                .fillAddress(address)
+                .fillState(state)
+                .fillCity(city)
+                .submitClick();
 
-        // Set address, state and city info
-        $("#currentAddress").setValue(address);
-
-        $("#state").click();
-        $(byText(state)).scrollTo().click();
-
-        $("#city").click();
-        $(byText(city)).scrollTo().click();
-
-        // Submit the form
-        $("#submit").click();
 
         // Check the final form
-      //  registrationPage.checkResultsValue("Student name", (name + " " + lastName))
+        //  registrationPage.checkResultsValue("Student name", (name + " " + lastName))
         registrationPage.checkResultsValue("Student Email", email)
                 .checkResultsValue("Gender", gender)
                 .checkResultsValue("Mobile", mobile)

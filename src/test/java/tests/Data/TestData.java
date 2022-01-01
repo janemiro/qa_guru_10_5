@@ -1,20 +1,17 @@
-package tests;
+package tests.Data;
 
 import com.github.javafaker.Faker;
+import tests.TestBase;
 
-public class TestData {
+public class TestData extends TestBase {
+
     Faker faker = new Faker();
-
-public static String url = "https://demoqa.com/automation-practice-form";
-
-public String
-            name = faker.name().firstName(),
+    public String name = faker.name().firstName(),
             lastName = faker.name().lastName(),
-            email = "jee.doe@gmail.com";
-
-/*
+            email = faker.internet().emailAddress(),
+            mobile = faker.phoneNumber().phoneNumber(),
+            address = faker.address().streetAddress(),
             gender = "Other",
-            mobile = "1234567890",
             month = "May",
             year = "1990",
             day = "30",
@@ -24,12 +21,6 @@ public String
             hobby = "Music",
             path = "img/1.jpg",
             picture = "img/1.jpg",
-            address = "Roof, 5",
             state = "Rajasthan",
-            city = "Jaipur"
-
-
-            */
-
-
+            city = "Jaipur";
 }
