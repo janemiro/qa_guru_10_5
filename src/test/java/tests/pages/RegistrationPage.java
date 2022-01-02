@@ -28,9 +28,9 @@ public class RegistrationPage {
             addressInput = $("#currentAddress"),
             stateInput = $("#state"),
             stateCitySelected = $("#stateCity-wrapper"),
-            cityInput = $("#state"),
+            cityInput = $("#city"),
             submitButton = $("#submit"),
-            resultsTable = $(".modal-open");
+            resultsTable = $(".table-responsive");
 
 
     public RegistrationPage openPage() {
@@ -107,6 +107,7 @@ public class RegistrationPage {
         resultsTable.$(byText(key))
                 .parent().shouldHave(text(value));
         return this;
+
     }
 
 }

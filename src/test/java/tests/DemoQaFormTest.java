@@ -29,16 +29,16 @@ public class DemoQaFormTest extends TestData {
 
 
         // Check the final form
-        //  registrationPage.checkResultsValue("Student name", (name + " " + lastName))
-        registrationPage.checkResultsValue("Student Email", email)
+        registrationPage.checkResultsValue("Student Name", (name + " " + lastName))
+                .checkResultsValue("Student Email", email)
                 .checkResultsValue("Gender", gender)
                 .checkResultsValue("Mobile", mobile)
                 .checkResultsValue("Date of Birth", dateOfBirth)
-                .checkResultsValue("Subjects", (subject1 + subject2))
+                .checkResultsValue("Subjects", subject1)
                 .checkResultsValue("Hobbies", hobby)
                 .checkResultsValue("Picture", picture)
                 .checkResultsValue("Address", address)
-                .checkResultsValue("State and City", (state + city));
+                .checkResultsValue("State and City", (state + " " + city));
 
     }
 }
