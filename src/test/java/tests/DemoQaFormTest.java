@@ -1,7 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Test;
-import tests.Data.TestData;
+import tests.data.TestData;
 import tests.pages.RegistrationPage;
 
 
