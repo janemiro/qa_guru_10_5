@@ -5,40 +5,41 @@ import tests.data.TestData;
 import tests.pages.RegistrationPage;
 
 
-public class DemoQaFormTest extends TestData {
+public class DemoQaFormTest extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
+    TestData testData = new TestData();
 
     @Test
     void fillFormTest() {
 
         registrationPage.openPage()
-                .fillName(name)
-                .fillLastName(lastName)
-                .fillEmail(email)
-                .fillGender(gender)
-                .fillMobileNumber(mobile)
-                .calendar.setDate(day, month, year);
+                .fillName(testData.name)
+                .fillLastName(testData.lastName)
+                .fillEmail(testData.email)
+                .fillGender(testData.gender)
+                .fillMobileNumber(testData.mobile)
+                .calendar.setDate(testData.day, testData.month, testData.year);
 
-        registrationPage.fillSubject(subject1)
-                .fillHobbies(hobby)
+        registrationPage.fillSubject(testData.subject1)
+                .fillHobbies(testData.hobby)
                 .uploadPicture()
-                .fillAddress(address)
-                .fillState(state)
-                .fillCity(city)
+                .fillAddress(testData.address)
+                .fillState(testData.state)
+                .fillCity(testData.city)
                 .submitClick();
 
 
         // Check the final form
-        registrationPage.checkResultsValue("Student Name", (name + " " + lastName))
-                .checkResultsValue("Student Email", email)
-                .checkResultsValue("Gender", gender)
-                .checkResultsValue("Mobile", mobile)
-                .checkResultsValue("Date of Birth", dateOfBirth)
-                .checkResultsValue("Subjects", subject1)
-                .checkResultsValue("Hobbies", hobby)
-                .checkResultsValue("Picture", picture)
-                .checkResultsValue("Address", address)
-                .checkResultsValue("State and City", (state + " " + city));
+        registrationPage.checkResultsValue("Student Name", (testData.name + " " + testData.lastName))
+                .checkResultsValue("Student Email", testData.email)
+                .checkResultsValue("Gender", testData.gender)
+                .checkResultsValue("Mobile", testData.mobile)
+                .checkResultsValue("Date of Birth", testData.dateOfBirth)
+                .checkResultsValue("Subjects", testData.subject1)
+                .checkResultsValue("Hobbies", testData.hobby)
+                .checkResultsValue("Picture", testData.picture)
+                .checkResultsValue("Address", testData.address)
+                .checkResultsValue("State and City", (testData.state + " " + testData.city));
 
     }
 }

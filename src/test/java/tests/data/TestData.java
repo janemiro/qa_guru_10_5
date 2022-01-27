@@ -3,7 +3,7 @@ package tests.data;
 import com.github.javafaker.Faker;
 import tests.TestBase;
 
-public class TestData extends TestBase {
+public class TestData {
 
     Faker faker = new Faker();
     public String name = faker.name().firstName(),
